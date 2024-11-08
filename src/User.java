@@ -1,49 +1,40 @@
-public abstract class User {
-    protected String userID;
-    protected String username;
-    protected String password;
-    protected String contactInfo;
+abstract class User {
+    private String userID;
+    private String password;
+    private String userName;
+    private String contactInfo;
+    private String role;
 
-    public User(String userID, String username, String password, String contactInfo) {
+    // Create Administrator, Restaurant account:
+    User(String userID, String password, String userName, String role) {
         this.userID = userID;
-        this.username = username;
         this.password = password;
+        this.userName = userName;
+        this.role = role;
+    }
+    // Create DeliveryStaff, Customer account:
+    User(String userID, String password, String userName, String contactInfo, String role) {
+        this.userID = userID;
+        this.password = password;
+        this.userName = userName;
         this.contactInfo = contactInfo;
+        this.role = role;
     }
 
-    public abstract boolean login();
-    public abstract boolean logout();
-    public abstract boolean updateProfile();
+    abstract void login();
+    abstract void logout();
 
-    public String getUserID() {
+    // getData function
+    String getUserID() {
         return userID;
     }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
+    String getUserName() {
+        return userName;
     }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
+    String getPassword() {
         return password;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getContactInfo() {
+    String getContactInfo() {
         return contactInfo;
-    }
-
-    public void setContactInfo(String contactInfo) {
-        this.contactInfo = contactInfo;
     }
 }

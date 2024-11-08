@@ -1,51 +1,38 @@
 public class DeliveryStaff extends User {
-    public String assignedOrders;
-    protected String availabilityStatus;
+    String assignedOrders;
+    boolean availabilityStatus;
 
-    public DeliveryStaff(String userID, String username, String password, String contactInfo, String assignedOrders, String availabilityStatus) {
-        super(userID, username, password, contactInfo);
-        this.assignedOrders = assignedOrders;
-        this.availabilityStatus = availabilityStatus;
+    DeliveryStaff(String userID, String password, String userName, String contactInfo, String role) {
+        super(userID, password, userName, contactInfo, "DeliveryStaff");
     }
 
-    public boolean acceptOrder() {
+    boolean acceptOrder() {
         System.out.println("Order accepted by Delivery Staff.");
         return true;
     }
 
-    public boolean updateOrderStatus() {
+    boolean updateDeliveryStatus() {
         System.out.println("Order status updated by Delivery Staff.");
         return true;
     }
-
-    public boolean confirmDelivery() {
+    boolean confirmDelivery() {
         System.out.println("Delivery confirmed by Delivery Staff.");
         return true;
     }
 
+    // Overriding login/logout functions
     @Override
-    public boolean login() {
+    void login() {
         System.out.println("Delivery Staff logged in.");
-        return true;
     }
-
     @Override
-    public boolean logout() {
+    void logout() {
         System.out.println("Delivery Staff logged out.");
-        return true;
     }
 
-    @Override
-    public boolean updateProfile() {
-        System.out.println("Delivery Staff profile updated.");
-        return true;
-    }
-
-    public String getAvailabilityStatus() {
+    // Manage Availability status
+    public boolean getAvailabilityStatus() {
         return availabilityStatus;
     }
-
-    public void setAvailabilityStatus(String availabilityStatus) {
-        this.availabilityStatus = availabilityStatus;
-    }
+    public void setAvailabilityStatus() { this.availabilityStatus = !this.availabilityStatus; }
 }

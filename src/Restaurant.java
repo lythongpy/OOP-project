@@ -1,53 +1,37 @@
-public class Restaurant extends User {
-    public String menu;
-    private String restaurantStatus;
-    protected String ordersQueue;
+class Restaurant extends User {
+    private boolean restaurantStatus = false;
+    private String ordersQueue;
 
-    public Restaurant(String userID, String username, String password, String contactInfo, String menu, String restaurantStatus, String ordersQueue) {
-        super(userID, username, password, contactInfo);
-        this.menu = menu;
-        this.restaurantStatus = restaurantStatus;
-        this.ordersQueue = ordersQueue;
+    Restaurant(String userID, String password, String userName) {
+        super(userID, password, userName, "Restaurant");
     }
 
-    public boolean updateMenu() {
-        System.out.println("Menu updated in Restaurant.");
-        return true;
+    void addMenuItem() {
     }
 
-    public boolean manageOrders() {
-        System.out.println("Managing orders in Restaurant.");
-        return true;
+    void removeMenuItem() {
+
     }
 
-    public boolean handleCustomerService() {
-        System.out.println("Handling customer service in Restaurant.");
-        return true;
+    void ManageOrders() {
+
     }
 
+    // Overriding login/logout function
     @Override
-    public boolean login() {
+    void login() {
         System.out.println("Restaurant logged in.");
-        return true;
     }
-
     @Override
-    public boolean logout() {
+    void logout() {
         System.out.println("Restaurant logged out.");
-        return true;
     }
 
-    @Override
-    public boolean updateProfile() {
-        System.out.println("Restaurant profile updated.");
-        return true;
-    }
-
-    public String getRestaurantStatus() {
+    // // Manage restaurant status
+    boolean getRestaurantStatus() {
         return restaurantStatus;
     }
-
-    public void setRestaurantStatus(String restaurantStatus) {
-        this.restaurantStatus = restaurantStatus;
+    protected void setRestaurantStatus(String restaurantStatus) {
+        this.restaurantStatus = !this.restaurantStatus;
     }
 }

@@ -1,51 +1,21 @@
-public class Administrator extends User {
-    public String managedUsers;
-    private String systemSettings;
+class Administrator extends User {
 
-    public Administrator(String userID, String username, String password, String contactInfo, String managedUsers, String systemSettings) {
-        super(userID, username, password, contactInfo);
-        this.managedUsers = managedUsers;
-        this.systemSettings = systemSettings;
+    public Administrator(String userID, String password, String userName) {
+        super(userID, password, userName, "Administrator");
     }
 
-    public boolean manageUsers() {
+    protected boolean manageUsers() {
         System.out.println("Users managed by Administrator.");
         return true;
     }
 
-    public boolean configureSettings() {
-        System.out.println("System settings configured by Administrator.");
-        return true;
-    }
-
-    public boolean viewReports() {
-        System.out.println("Reports viewed by Administrator.");
-        return true;
-    }
-
+    // Overriding login/logout functions
     @Override
-    public boolean login() {
+    void login() {
         System.out.println("Administrator logged in.");
-        return true;
     }
-
     @Override
-    public boolean logout() {
+    void logout() {
         System.out.println("Administrator logged out.");
-        return true;
-    }
-
-    @Override
-    public boolean updateProfile() {
-        System.out.println("Administrator profile updated.");
-        return true;
-    }
-
-    public String getSystemSettings() {
-        return systemSettings;
-    }
-
-    public void setSystemSettings(String systemSettings) {
-        this.systemSettings = systemSettings;
     }
 }
