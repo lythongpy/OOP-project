@@ -3,8 +3,8 @@ public class Restaurant extends User {
     private String restaurantStatus;
     protected String ordersQueue;
 
-    public Restaurant(String userID, String username, String password, String contactInfo, String menu, String restaurantStatus, String ordersQueue) {
-        super(userID, username, password, contactInfo);
+    public Restaurant(String userID, String username, String password, String menu, String restaurantStatus, String ordersQueue) {
+        super(userID, username, password);
         this.menu = menu;
         this.restaurantStatus = restaurantStatus;
         this.ordersQueue = ordersQueue;

@@ -2,8 +2,8 @@ public class Administrator extends User {
     public String managedUsers;
     private String systemSettings;
 
-    public Administrator(String userID, String username, String password, String contactInfo, String managedUsers, String systemSettings) {
-        super(userID, username, password, contactInfo);
+    public Administrator(String userID, String username, String password, String managedUsers, String systemSettings) {
+        super(userID, username, password);
         this.managedUsers = managedUsers;
         this.systemSettings = systemSettings;
     }

@@ -10,6 +10,12 @@ public abstract class User {
         this.password = password;
         this.contactInfo = contactInfo;
     }
+    overload
+    public User(String userID, String username, String password) {
+        this.userID = userID;
+        this.username = username;
+        this.password = password;
+    }
 
     public abstract boolean login();
     public abstract boolean logout();
