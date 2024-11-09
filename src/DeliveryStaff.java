@@ -1,22 +1,29 @@
+import java.util.ArrayList;
+
 public class DeliveryStaff extends User {
-    String assignedOrders;
+    ArrayList<Order> assignedOrders;
     boolean availabilityStatus;
 
-    DeliveryStaff(String userID, String password, String userName, String contactInfo, String role) {
+    DeliveryStaff(String userID, String password, String userName, String contactInfo) {
         super(userID, password, userName, contactInfo, "DeliveryStaff");
+        this.assignedOrders = new ArrayList<>();
+        this.availabilityStatus = true;
     }
 
-    boolean acceptOrder() {
+    boolean acceptOrder(Order order) {
         System.out.println("Order accepted by Delivery Staff.");
+        assignedOrders.add(order);
         return true;
     }
 
-    boolean updateDeliveryStatus() {
+    boolean updateDeliveryStatus(Order order) {
         System.out.println("Order status updated by Delivery Staff.");
         return true;
     }
-    boolean confirmDelivery() {
+
+    boolean confirmDelivery(Order order) {
         System.out.println("Delivery confirmed by Delivery Staff.");
+        assignedOrders.remove(order);
         return true;
     }
 
@@ -25,6 +32,7 @@ public class DeliveryStaff extends User {
     void login() {
         System.out.println("Delivery Staff logged in.");
     }
+
     @Override
     void logout() {
         System.out.println("Delivery Staff logged out.");
@@ -34,5 +42,11 @@ public class DeliveryStaff extends User {
     public boolean getAvailabilityStatus() {
         return availabilityStatus;
     }
-    public void setAvailabilityStatus() { this.availabilityStatus = !this.availabilityStatus; }
+
+    public void setAvailabilityStatus(boolean status) {
+        this.availabilityStatus = status;
+    }
 }
+
+
+//Improvements on assignedOrders and availabilityStatus
