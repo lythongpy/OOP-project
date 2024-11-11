@@ -19,3 +19,4 @@ class Administrator extends User {
         System.out.println("Administrator logged out.");
     }
 }
+  //lord card
