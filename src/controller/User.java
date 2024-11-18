@@ -1,6 +1,6 @@
 package controller;
 
-abstract class User {
+abstract class User implements UserAction {
     private String userID;
     private String password;
     private String userName;
