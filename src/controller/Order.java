@@ -8,6 +8,7 @@ class Order {
     private String deliveryAddress;
     private ArrayList<OrderItem> orderItems;
     private String orderStatus;
+    private int OrderID;
     private double totalPrice;
 
     public Order(String restaurantName, String customerName, String deliveryAddress) {
@@ -17,6 +18,7 @@ class Order {
         this.orderItems = new ArrayList<>();
         this.orderStatus = "Pending";
         this.totalPrice = 0.0;
+        this.OrderID = 0;
     }
 
     public void addOrderItem(OrderItem item) {
@@ -56,4 +58,6 @@ class Order {
     public double getTotalPrice() {
         return totalPrice;
     }
+
+    public int getOrderID() {return OrderID;}
 }

@@ -4,13 +4,11 @@ class MenuItem {
     private String name;
     private String description;
     private double price;
-    private String image; // URL or path to the image file
 
     public MenuItem(String name, String description, double price, String image) {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.image = image;
     }
 
     public String getName() {
@@ -25,7 +23,4 @@ class MenuItem {
         return price;
     }
 
-    public String getImage() {
-        return image;
-    }
 }
